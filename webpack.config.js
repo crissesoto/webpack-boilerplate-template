@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: "./src/before.js", //relative path
+    entry: "./src/ui-library/index.js", //relative path
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, "dist/assets") //absolute path
@@ -23,7 +23,11 @@ module.exports = {
                 presets: ['@babel/preset-env']
               }
             }
-          }
+          },
+          {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+          },
         ]
       }
 };
